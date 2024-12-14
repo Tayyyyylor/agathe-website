@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'scenographie',
+    title: 'contact',
 }
 
 export default function ContactPage() {
