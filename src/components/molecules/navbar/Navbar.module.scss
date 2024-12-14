@@ -1,0 +1,90 @@
+@import '../../../app/variables.scss';
+
+.nav {
+    .navContainer {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 40px;
+        text-transform: uppercase;
+        margin-right: 30px;
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.verticalBar {
+    width: 1px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.burgerMenu {
+    position: relative;
+
+    .burgerIcon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s cubic-bezier(0.73, 0.11, 0.67, 0.84);
+    }
+
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: $darkBlue;
+        transform: translateY(-200%);
+        transition: transform 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menuOpen {
+        transform: translateY(80px);
+        padding: 1rem;
+        text-transform: uppercase;
+    }
+
+    a {
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        list-style: none;
+    }
+
+    .line {
+        width: 100%;
+        height: 3px;
+        background: $darkBlue;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+    .crossLine1 {
+        transform: rotate(45deg) translate(6px, 2px);
+    }
+
+    .crossLine2 {
+        opacity: 0;
+    }
+
+    .crossLine3 {
+        transform: rotate(-45deg) translate(10px, -6px);
+    }
+}
