@@ -10,6 +10,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "contentful": "^11.3.2",
         "next": "15.1.0",
         "prettier": "^3.4.2",
         "react": "^19.0.0",
