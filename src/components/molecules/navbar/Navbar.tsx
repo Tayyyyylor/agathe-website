@@ -34,7 +34,7 @@ export default function Navbar() {
                 <ul>
                     <li>
                         <Link href="/decors" onClick={handleClick}>
-                            decors
+                            décors
                         </Link>
                     </li>
                     <li>
@@ -44,7 +44,7 @@ export default function Navbar() {
                     </li>
                     <li>
                         <Link href="/scenographie" onClick={handleClick}>
-                            scenographie
+                            scénographie
                         </Link>
                     </li>
                     <li>
@@ -59,13 +59,13 @@ export default function Navbar() {
         <nav className={styles.nav}>
             <ul className={styles.navContainer}>
                 <li>
-                    <Link href="/decors">decors</Link>
+                    <Link href="/decors">décors</Link>
                 </li>
                 <li>
                     <Link href="/photographie">photographie</Link>
                 </li>
                 <li>
-                    <Link href="/scenographie">scenographie</Link>
+                    <Link href="/scenographie">scénographie</Link>
                 </li>
                 <li>
                     <Link href="/contact">contact</Link>
