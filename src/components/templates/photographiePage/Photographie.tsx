@@ -17,7 +17,7 @@ export default function Photographie({ data }: any) {
                 return (
                     <Cards
                         key={index}
-                        src={`https:${card.fields.imgCover.fields.file.url}`}
+                        src={card.fields?.test?.[0]?.original_secure_url}
                         alt={card.alt}
                         title={card.fields.title}
                     />
