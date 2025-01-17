@@ -1,0 +1,17 @@
+.maintenance {
+    display: flex;
+    height: 100dvh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f2ee;
+
+    .title {
+        font-family: 'fontBlack';
+        font-size: 50px;
+    }
+
+    .text {
+        font-size: 30px;
+    }
+}
