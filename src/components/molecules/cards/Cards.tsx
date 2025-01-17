@@ -5,10 +5,10 @@ import styles from './Cards.module.scss'
 interface CardsProps {
     src: string
     alt: string
-    text: string
+    title: string
 }
 
-export default function Cards({ src, alt, text }: CardsProps) {
+export default function Cards({ src, alt, title }: CardsProps) {
     return (
         <div className={styles.cards}>
             <Image
@@ -17,8 +17,9 @@ export default function Cards({ src, alt, text }: CardsProps) {
                 width={400}
                 height={400}
                 className={styles.imgCards}
+                layout="intrinsic"
             />
-            <p className={styles.txtCards}>{text}</p>
+            <p>{title}</p>
         </div>
     )
 }
