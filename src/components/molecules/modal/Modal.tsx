@@ -10,7 +10,6 @@ interface ModalProps {
 }
 
 export default function Modal({ title, onClick, data }: ModalProps) {
-    console.log('data modal', data)
     return (
         <section className={styles.modal}>
             <button className={styles.close} onClick={onClick}>
@@ -19,8 +18,6 @@ export default function Modal({ title, onClick, data }: ModalProps) {
             <h2 className={styles.title}>{title}</h2>
             <div className={styles.imagesContainer}>
                 {data.fields.img.map((img: any, index: number) => {
-                    console.log('img', img)
-
                     return (
                         <div key={index}>
                             <Image
