@@ -9,6 +9,18 @@ export default function Homepage({ data }: any) {
     const [currentIndex, setCurrentIndex] = useState(0)
 
     useEffect(() => {
+        // Ajoute directement des styles inline au body
+        document.body.style.overflow = 'hidden'
+        document.body.style.height = '100%'
+
+        return () => {
+            // Nettoie les styles inline lorsque le composant est démonté
+            document.body.style.overflow = ''
+            document.body.style.height = ''
+        }
+    }, [])
+
+    useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length)
         }, 4000)
