@@ -8,21 +8,19 @@ import Modal from '@/components/molecules/modal/Modal'
 // import useContentful from '@/hooks/useContentful'
 
 export default function Photographie({ data }: any) {
-    console.log('datadata', data)
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [selectedProject, setSelectedProject] = useState(null)
 
-    const [isOpen, setIsOpen] = useState(false)
-
-    console.log('isOpen', isOpen)
-
-    const formattedData: any = data?.fields
-
-    console.log('formattedData', formattedData)
-
-    const handleClickOpenModal = () => {
+    const handleClickOpenModal = (project: any) => {
+        console.log('project', project)
         setIsOpen(true)
+        setSelectedProject(project)
     }
 
+    console.log('selectedProject', selectedProject)
+
     const handleClickCloseModal = () => {
+        setSelectedProject(null)
         setIsOpen(false)
     }
     return (
@@ -33,16 +31,23 @@ export default function Photographie({ data }: any) {
                     return (
                         <Cards
                             key={index}
-                            src={card.fields?.test?.[0]?.original_secure_url}
+                            src={
+                                card.fields?.imgCover?.[0]?.original_secure_url
+                            }
                             alt="toto"
                             title={card.fields.title}
-                            onClick={handleClickOpenModal}
+                            onClick={() => handleClickOpenModal(data[index])}
                         />
                     )
                 })}
             </section>
-            {isOpen && <Modal title="toto" onClick={handleClickCloseModal} />}
-            {/* <Modal title='toto'/> */}
+            {isOpen && selectedProject && (
+                <Modal
+                    title="toto"
+                    onClick={handleClickCloseModal}
+                    data={selectedProject}
+                />
+            )}
         </main>
     )
 }

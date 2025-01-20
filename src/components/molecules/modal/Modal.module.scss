@@ -9,6 +9,8 @@
     transform: translate(-50%, -50%);
     background-color: white;
     width: 70%;
+    height: 80dvh;
+    overflow-y: auto;
 
     .close {
         border: none;
@@ -17,5 +19,13 @@
         right: 13px;
         top: 5px;
         cursor: pointer;
+    }
+
+    .imagesContainer {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 2px;
+        justify-content: center;
     }
 }
