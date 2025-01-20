@@ -10,16 +10,11 @@ interface CardsProps {
 
 export default function Cards({ src, alt, title }: CardsProps) {
     return (
-        <div className={styles.cards}>
-            <Image
-                src={src}
-                alt={alt}
-                width={400}
-                height={400}
-                className={styles.imgCards}
-                layout="intrinsic"
-            />
+        <section className={styles.container}>
+            <div className={styles.cards}>
+                <Image src={src} alt={alt} className={styles.imgCards} fill />
+            </div>
             <p>{title}</p>
-        </div>
+        </section>
     )
 }

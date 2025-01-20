@@ -1,10 +1,20 @@
-.cards {
+@import '../../../app/variables.scss';
+
+.container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    .cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 300px;
+        position: relative;
 
-    .imgCards {
-        object-fit: contain;
+        .imgCards {
+            object-fit: cover;
+        }
     }
 }
