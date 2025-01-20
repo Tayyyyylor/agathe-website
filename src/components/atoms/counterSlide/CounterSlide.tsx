@@ -48,7 +48,7 @@ export default function CounterSlide({
                 duration: 0.5,
                 ease: 'power2.inOut',
                 onComplete: () => {
-                    setCurrentOrder(data[index]?.order || 0)
+                    setCurrentOrder(data[index]?.fields?.order || 0)
                     gsap.set(current, { y: 100, opacity: 0 })
                 },
             })
