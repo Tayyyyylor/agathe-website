@@ -1,8 +1,16 @@
 .photographie {
-    display: flex;
-    gap: 5rem;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // gap: 2rem;
+    // flex-wrap: wrap;
+    // align-items: center;
+    // justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.containerCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
     padding: 1rem;
 }

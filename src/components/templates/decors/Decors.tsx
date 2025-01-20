@@ -3,11 +3,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Cards from '@/components/molecules/cards/Cards'
 import React, { useState } from 'react'
-import styles from './Photographie.module.scss'
+import styles from './Decors.module.scss'
 import Modal from '@/components/molecules/modal/Modal'
-// import useContentful from '@/hooks/useContentful'
 
-export default function Photographie({ data }: any) {
+export default function Decors({ data }: any) {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [selectedProject, setSelectedProject] = useState(null)
 
