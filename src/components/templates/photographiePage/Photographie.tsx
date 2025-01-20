@@ -14,11 +14,12 @@ export default function Photographie({ data }: any) {
     return (
         <main className={styles.photographie}>
             {data.map((card: any, index: number) => {
+                console.log('card', card)
                 return (
                     <Cards
                         key={index}
                         src={card.fields?.test?.[0]?.original_secure_url}
-                        alt={card.alt}
+                        alt="toto"
                         title={card.fields.title}
                     />
                 )
