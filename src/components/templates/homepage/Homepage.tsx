@@ -4,9 +4,10 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Homepage.module.scss'
 import Image from 'next/image'
+import CounterSlide from '@/components/atoms/counterSlide/CounterSlide'
 
 export default function Homepage({ data }: any) {
-    const [currentIndex, setCurrentIndex] = useState(0)
+    const [currentIndex, setCurrentIndex] = useState<number>(0)
 
     useEffect(() => {
         // Ajoute directement des styles inline au body
@@ -39,6 +40,12 @@ export default function Homepage({ data }: any) {
                     className={styles.image}
                 />
             </section>
+            <CounterSlide
+                className={styles.counter}
+                data={data}
+                index={currentIndex}
+                setIndex={setCurrentIndex}
+            />
         </main>
     )
 }
