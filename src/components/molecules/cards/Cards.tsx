@@ -6,15 +6,23 @@ interface CardsProps {
     src: string
     alt: string
     title: string
+    onClick: () => void
 }
 
-export default function Cards({ src, alt, title }: CardsProps) {
+export default function Cards({ src, alt, title, onClick }: CardsProps) {
     return (
-        <section className={styles.container}>
-            <div className={styles.cards}>
-                <Image src={src} alt={alt} className={styles.imgCards} fill />
-            </div>
-            <p>{title}</p>
-        </section>
+        <>
+            <section className={styles.container} onClick={onClick}>
+                <div className={styles.cards}>
+                    <Image
+                        src={src}
+                        alt={alt}
+                        className={styles.imgCards}
+                        fill
+                    />
+                </div>
+                <p>{title}</p>
+            </section>
+        </>
     )
 }
