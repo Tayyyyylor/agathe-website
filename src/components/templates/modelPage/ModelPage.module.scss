@@ -1,11 +1,20 @@
+@import '../../../app/variables.scss';
+
 .model {
-    margin: 0 auto;
-    max-width: 1200px;
+    @media screen and (min-width: $desktop) {
+        margin: 0 auto;
+        max-width: 1200px;
+    }
 }
 
 .containerCards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @media screen and (min-width: $desktop) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+    }
 }

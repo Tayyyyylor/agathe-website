@@ -3,5 +3,5 @@ import React from 'react'
 import ModelPage from '../modelPage/ModelPage'
 
 export default function Scenographie({ data }: any) {
-    return <ModelPage data={data} />
+    return data && <ModelPage data={data} />
 }
