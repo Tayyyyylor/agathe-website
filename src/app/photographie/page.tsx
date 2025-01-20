@@ -11,7 +11,7 @@ async function fetchPhotosData() {
         // const formattedSlug = slug.replace(/%20/g, '-')
 
         const response = await client.getEntries({
-            content_type: 'post',
+            content_type: 'photographies',
         })
 
         console.log('response', response)
