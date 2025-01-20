@@ -8,8 +8,6 @@ export const metadata: Metadata = {
 
 async function fetchPhotosData() {
     try {
-        // const formattedSlug = slug.replace(/%20/g, '-')
-
         const response = await client.getEntries({
             content_type: 'photographies',
         })
