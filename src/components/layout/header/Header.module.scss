@@ -1,7 +1,17 @@
+@import '../../../app/variables.scss';
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    position: relative;
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    @media screen and (min-width: $desktop) {
+        border-bottom: 1px solid black;
+    }
 }

@@ -19,11 +19,12 @@ export default function Modal({ title, onClick, data }: ModalProps) {
             <div className={styles.imagesContainer}>
                 {data.fields.img.map((img: any, index: number) => {
                     return (
-                        <div key={index}>
+                        <div key={index} className={styles.imgContainer}>
                             <Image
                                 src={img.original_secure_url}
                                 width={300}
                                 height={300}
+                                layout="intrinsic"
                                 alt=""
                                 className={styles.image}
                             />

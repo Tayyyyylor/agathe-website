@@ -1,6 +1,7 @@
 @import '../../../app/variables.scss';
 
 .model {
+    margin-top: 110px;
     @media screen and (min-width: $desktop) {
         margin: 0 auto;
         max-width: 1200px;
@@ -12,9 +13,12 @@
     flex-direction: column;
     gap: 2rem;
     @media screen and (min-width: $desktop) {
+        gap: 0;
+        margin-top: 150px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+        column-gap: 5px;
+        row-gap: 3rem;
         padding: 1rem;
     }
 }

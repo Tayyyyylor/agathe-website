@@ -10,7 +10,9 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@gsap/react": "^2.1.2",
         "contentful": "^11.3.2",
+        "gsap": "^3.12.7",
         "next": "15.1.0",
         "next-cloudinary": "^6.16.0",
         "prettier": "^3.4.2",

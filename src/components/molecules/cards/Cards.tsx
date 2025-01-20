@@ -7,12 +7,22 @@ interface CardsProps {
     alt: string
     title: string
     onClick: () => void
+    className?: string
 }
 
-export default function Cards({ src, alt, title, onClick }: CardsProps) {
+export default function Cards({
+    src,
+    alt,
+    title,
+    onClick,
+    className,
+}: CardsProps) {
     return (
         <>
-            <section className={styles.container} onClick={onClick}>
+            <section
+                className={`${styles.container} ${className}`}
+                onClick={onClick}
+            >
                 <div className={styles.cards}>
                     <Image
                         src={src}

@@ -23,6 +23,7 @@
 
     .title {
         margin-bottom: 30px;
+        padding: 10px;
     }
 
     .close {
@@ -42,7 +43,20 @@
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        gap: 2px;
         justify-content: center;
+        position: relative;
+        @media screen and (min-width: $desktop) {
+            gap: 2px;
+        }
+    }
+
+    .imgContainer {
+        width: auto;
+        height: auto;
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
     }
 }
