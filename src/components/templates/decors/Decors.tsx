@@ -1,44 +1,9 @@
 'use client'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Cards from '@/components/molecules/cards/Cards'
-import React, { useState } from 'react'
-import styles from './Decors.module.scss'
-import Modal from '@/components/molecules/modal/Modal'
+import React from 'react'
+import ModelPage from '../modelPage/ModelPage'
 
 export default function Decors({ data }: any) {
-    const [isOpen, setIsOpen] = useState<boolean>(false)
-    const [selectedProject, setSelectedProject] = useState(null)
-
-    const handleClickOpenModal = (project: any) => {
-        setIsOpen(true)
-        setSelectedProject(project)
-    }
-
-    const handleClickCloseModal = () => {
-        setSelectedProject(null)
-        setIsOpen(false)
-    }
-    return (
-        <main className={styles.photographie}>
-            <section className={styles.containerCards}>
-                {data.map((card: any, index: number) => (
-                    <Cards
-                        key={index}
-                        src={card.fields?.imgCover?.[0]?.original_secure_url}
-                        alt="toto"
-                        title={card.fields.title}
-                        onClick={() => handleClickOpenModal(data[index])}
-                    />
-                ))}
-            </section>
-            {isOpen && selectedProject && (
-                <Modal
-                    title="toto"
-                    onClick={handleClickCloseModal}
-                    data={selectedProject}
-                />
-            )}
-        </main>
-    )
+    return <ModelPage data={data} />
 }
