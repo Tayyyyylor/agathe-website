@@ -3,10 +3,14 @@ import React, { useState } from 'react'
 import styles from './Navbar.module.scss'
 import useMobile from '@/hooks/useMobile'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
     const isMobile = useMobile()
     const [isOpen, setIsOpen] = useState(false)
+
+    const pathname = usePathname()
+    const isActive = (path: string) => pathname?.includes(path)
 
     const toggleMenu = () => {
         setIsOpen(!isOpen)
@@ -57,20 +61,38 @@ export default function Navbar() {
         </div>
     ) : (
         <nav className={styles.nav}>
-            <ul className={styles.navContainer}>
-                <li>
-                    <Link href="/decors">décors</Link>
-                </li>
-                <li>
-                    <Link href="/photographie">photographie</Link>
-                </li>
-                <li>
-                    <Link href="/scenographie">scénographie</Link>
-                </li>
-                <li>
-                    <Link href="/contact">contact</Link>
-                </li>
-            </ul>
+            <Link
+                href="/decors"
+                className={`${styles.link} ${
+                    isActive('/decors') ? styles.active : ''
+                }`}
+            >
+                décors
+            </Link>
+            <Link
+                href="/photographie"
+                className={`${styles.link} ${
+                    isActive('/photographie') ? styles.active : ''
+                }`}
+            >
+                photographie
+            </Link>
+            <Link
+                href="/scenographie"
+                className={`${styles.link} ${
+                    isActive('/scenographie') ? styles.active : ''
+                }`}
+            >
+                scénographie
+            </Link>
+            <Link
+                href="/contact"
+                className={`${styles.link} ${
+                    isActive('/contact') ? styles.active : ''
+                }`}
+            >
+                contact
+            </Link>
         </nav>
     )
 }

@@ -1,14 +1,20 @@
 'use client'
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from 'react'
-import styles from './Homepage.module.scss'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+
 import CounterSlide from '@/components/atoms/counterSlide/CounterSlide'
+import styles from './Homepage.module.scss'
 
 export default function Homepage({ data }: any) {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
+    const imageRef = useRef<HTMLDivElement>(null)
 
+    const sortedData = React.useMemo(() => {
+        return [...data].sort((a, b) => a.fields.order - b.fields.order)
+    }, [data])
+
+    // Hide vertical scroll
     useEffect(() => {
         // Ajoute directement des styles inline au body
         document.body.style.overflow = 'hidden'
@@ -31,10 +37,10 @@ export default function Homepage({ data }: any) {
 
     return (
         <main className={styles.homepage}>
-            <section className={styles.imageContainer}>
+            <section className={styles.imageContainer} ref={imageRef}>
                 <Image
                     key={currentIndex}
-                    src={`${data[currentIndex]?.fields?.img?.[0]?.original_secure_url}`}
+                    src={`${sortedData[currentIndex]?.fields?.img?.[0]?.original_secure_url}`}
                     alt=""
                     fill
                     className={styles.image}
@@ -42,7 +48,7 @@ export default function Homepage({ data }: any) {
             </section>
             <CounterSlide
                 className={styles.counter}
-                data={data}
+                data={sortedData}
                 index={currentIndex}
                 setIndex={setCurrentIndex}
             />
