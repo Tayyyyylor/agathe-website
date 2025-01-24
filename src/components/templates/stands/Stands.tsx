@@ -2,6 +2,6 @@
 import React from 'react'
 import ModelPage from '../modelPage/ModelPage'
 
-export default function Scenographie({ data }: any) {
+export default function Stands({ data }: any) {
     return data && <ModelPage data={data} />
 }
