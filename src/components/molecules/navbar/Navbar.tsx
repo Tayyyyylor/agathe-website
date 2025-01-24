@@ -42,13 +42,13 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/photographie" onClick={handleClick}>
-                            photographie
+                        <Link href="/maquettes" onClick={handleClick}>
+                            maquettes
                         </Link>
                     </li>
                     <li>
-                        <Link href="/scenographie" onClick={handleClick}>
-                            scénographie
+                        <Link href="/stands" onClick={handleClick}>
+                            stands
                         </Link>
                     </li>
                     <li>
@@ -70,20 +70,20 @@ export default function Navbar() {
                 décors
             </Link>
             <Link
-                href="/photographie"
+                href="/maquettes"
                 className={`${styles.link} ${
-                    isActive('/photographie') ? styles.active : ''
+                    isActive('/maquettes') ? styles.active : ''
                 }`}
             >
-                photographie
+                maquettes
             </Link>
             <Link
-                href="/scenographie"
+                href="/stands"
                 className={`${styles.link} ${
-                    isActive('/scenographie') ? styles.active : ''
+                    isActive('/stands') ? styles.active : ''
                 }`}
             >
-                scénographie
+                stands
             </Link>
             <Link
                 href="/contact"

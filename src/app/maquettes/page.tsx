@@ -1,15 +1,15 @@
-import Scenographie from '@/components/templates/scenographie/Scenographie'
-import client from '@/utils/contentful'
 import { Metadata } from 'next'
+import client from '@/utils/contentful'
+import Maquettes from '@/components/templates/maquettesPage/Maquettes'
 
 export const metadata: Metadata = {
-    title: 'scenographie',
+    title: 'maquettes',
 }
 
-async function fetchScenoData() {
+async function fetchPhotosData() {
     try {
         const response = await client.getEntries({
-            content_type: 'sceno',
+            content_type: 'photographies',
         })
 
         console.log('response', response)
@@ -25,7 +25,10 @@ async function fetchScenoData() {
     }
 }
 
-export default async function ScenographiePage() {
-    const data = await fetchScenoData()
-    return <Scenographie data={data} />
+export default async function MaquettesPage() {
+    const data = await fetchPhotosData()
+
+    console.log('data page', data)
+
+    return <Maquettes data={data} />
 }
