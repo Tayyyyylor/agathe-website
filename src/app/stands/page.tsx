@@ -1,15 +1,15 @@
-import Photographie from '@/components/templates/photographiePage/Photographie'
-import { Metadata } from 'next'
+import Stands from '@/components/templates/stands/Stands'
 import client from '@/utils/contentful'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'photographie',
+    title: 'scenographie',
 }
 
-async function fetchPhotosData() {
+async function fetchScenoData() {
     try {
         const response = await client.getEntries({
-            content_type: 'photographies',
+            content_type: 'sceno',
         })
 
         console.log('response', response)
@@ -25,10 +25,7 @@ async function fetchPhotosData() {
     }
 }
 
-export default async function PhotographiePage() {
-    const data = await fetchPhotosData()
-
-    console.log('data page', data)
-
-    return <Photographie data={data} />
+export default async function ScenographiePage() {
+    const data = await fetchScenoData()
+    return <Stands data={data} />
 }
