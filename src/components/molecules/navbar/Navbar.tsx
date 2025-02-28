@@ -42,13 +42,18 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li>
+                        <Link href="/stands" onClick={handleClick}>
+                            stands
+                        </Link>
+                    </li>
+                    <li>
                         <Link href="/maquettes" onClick={handleClick}>
                             maquettes
                         </Link>
                     </li>
                     <li>
-                        <Link href="/stands" onClick={handleClick}>
-                            stands
+                        <Link href="/photographies" onClick={handleClick}>
+                            photographies
                         </Link>
                     </li>
                     <li>
@@ -70,6 +75,14 @@ export default function Navbar() {
                 décors
             </Link>
             <Link
+                href="/stands"
+                className={`${styles.link} ${
+                    isActive('/stands') ? styles.active : ''
+                }`}
+            >
+                stands
+            </Link>
+            <Link
                 href="/maquettes"
                 className={`${styles.link} ${
                     isActive('/maquettes') ? styles.active : ''
@@ -78,12 +91,12 @@ export default function Navbar() {
                 maquettes
             </Link>
             <Link
-                href="/stands"
+                href="/photographies"
                 className={`${styles.link} ${
-                    isActive('/stands') ? styles.active : ''
+                    isActive('/photographies') ? styles.active : ''
                 }`}
             >
-                stands
+                photographies
             </Link>
             <Link
                 href="/contact"
