@@ -8,7 +8,7 @@ import styles from './Homepage.module.scss'
 
 export default function Homepage({ data }: any) {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
-    const [currentTitle, setCurrentTitle] = useState<string>('')
+    const [, setCurrentTitle] = useState<string>('')
     const [, setIsTransitioning] = useState<boolean>(false)
     const imageRef = useRef<HTMLDivElement>(null)
 
@@ -38,7 +38,7 @@ export default function Homepage({ data }: any) {
                 setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length)
                 setIsTransitioning(false) // Fin de la transition
             }, 1000) // Durée de la transition (1 seconde)
-        }, 4000) // Intervalle entre les changements d'images (4 secondes)
+        }, 2000) // Intervalle entre les changements d'images (4 secondes)
 
         return () => clearInterval(interval)
     }, [data.length])
@@ -62,9 +62,9 @@ export default function Homepage({ data }: any) {
                                 opacity: index === currentIndex ? 1 : 0,
                             }}
                         />
-                        {index === currentIndex && (
+                        {/* {index === currentIndex && (
                             <p className={styles.title}>{currentTitle}</p>
-                        )}
+                        )} */}
                     </div>
                 ))}
             </section>

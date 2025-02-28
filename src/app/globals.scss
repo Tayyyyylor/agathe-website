@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import '../app/variables.scss';
 
 * {
     box-sizing: border-box;
@@ -6,7 +6,9 @@
     padding: 0;
     font-family: 'light';
 }
-
+body {
+    background-color: $white;
+}
 a {
     text-decoration: none;
     color: black;

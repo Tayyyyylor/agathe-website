@@ -10,9 +10,12 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 350px;
         height: 350px;
+        width: 100%;
         position: relative;
+        @media screen and (min-width: $desktop) {
+            width: 350px;
+        }
 
         .imgCards {
             object-fit: cover;
