@@ -10,26 +10,24 @@ import 'swiper/css/navigation' // Styles pour la navigation
 import 'swiper/css/pagination' // Styles pour la pagination
 
 interface ModalProps {
-    title: string
     onClick: () => void
     data: any
 }
 
-export default function Modal({ title, onClick, data }: ModalProps) {
+export default function Modal({ data }: ModalProps) {
     return (
         <section className={styles.modal}>
-            <button className={styles.close} onClick={onClick}>
-                X
-            </button>
-            <h2 className={styles.title}>{title}</h2>
             <div className={styles.imagesContainer}>
                 {/* Utilisation de Swiper pour le slider */}
                 <Swiper
                     modules={[Navigation, Pagination]} // Modules activés
                     spaceBetween={10} // Espace entre les slides
                     slidesPerView={1} // Nombre de slides visibles à la fois
-                    navigation // Activer la navigation (flèches)
-                    pagination={{ clickable: true }} // Activer la pagination (points)
+                    navigation={{
+                        // Configuration des flèches de navigation
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    }}
                     loop // Activer le mode boucle
                     className={styles.swiperContainer}
                 >
@@ -47,6 +45,10 @@ export default function Modal({ title, onClick, data }: ModalProps) {
                             </div>
                         </SwiperSlide>
                     ))}
+                    <div className={`swiper-button-prev ${styles.arrowLeft}`} />
+                    <div
+                        className={`swiper-button-next ${styles.arrowRight}`}
+                    />
                 </Swiper>
             </div>
         </section>
