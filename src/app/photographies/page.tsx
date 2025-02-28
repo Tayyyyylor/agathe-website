@@ -3,7 +3,7 @@ import client from '@/utils/contentful'
 import PhotoPage from '@/components/templates/photographiesPage/PhotoPage'
 
 export const metadata: Metadata = {
-    title: 'maquettes',
+    title: 'photographies',
 }
 
 async function fetchPhotosData() {
