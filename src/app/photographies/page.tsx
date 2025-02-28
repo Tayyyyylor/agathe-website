@@ -1,15 +1,15 @@
 import { Metadata } from 'next'
 import client from '@/utils/contentful'
-import Maquettes from '@/components/templates/maquettesPage/Maquettes'
+import PhotoPage from '@/components/templates/photographiesPage/PhotoPage'
 
 export const metadata: Metadata = {
     title: 'maquettes',
 }
 
-async function fetchMaquettesData() {
+async function fetchPhotosData() {
     try {
         const response = await client.getEntries({
-            content_type: 'maquettes',
+            content_type: 'photographies',
         })
 
         console.log('response', response)
@@ -26,9 +26,9 @@ async function fetchMaquettesData() {
 }
 
 export default async function PhotographiesPage() {
-    const data = await fetchMaquettesData()
+    const data = await fetchPhotosData()
 
     console.log('data page', data)
 
-    return <Maquettes data={data} />
+    return <PhotoPage data={data} />
 }

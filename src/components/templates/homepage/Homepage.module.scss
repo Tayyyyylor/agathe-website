@@ -7,9 +7,9 @@
         height: 100vh;
         width: 100vw;
         overflow: hidden;
+        position: relative;
         @media screen and (min-width: $desktop) {
             height: 100dvh;
-            position: relative;
             width: 100%;
         }
     }
@@ -18,10 +18,34 @@
         object-fit: cover;
         width: 100%;
         height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0; // Par défaut, toutes les images sont invisibles
+        transition: opacity 1s ease-in-out; // Transition pour l'effet de fondu
+
+        &.active {
+            opacity: 1; // L'image active est visible
+        }
+
+        &.inactive {
+            opacity: 0; // Les autres images sont invisibles
+        }
+
         @media screen and (min-width: $desktop) {
             object-fit: fill;
         }
     }
+}
+
+.title {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    color: white;
+    font-size: 50px;
+    font-family: 'bold';
+    z-index: 10; // Assurez-vous que le titre est au-dessus de l'image
 }
 
 .counter {

@@ -40,23 +40,49 @@
     }
 
     .imagesContainer {
-        display: flex;
-        flex-wrap: wrap;
         width: 100%;
-        justify-content: center;
+        height: 100%;
         position: relative;
-        @media screen and (min-width: $desktop) {
-            gap: 2px;
-        }
+    }
+
+    .swiperContainer {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiperSlide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .imgContainer {
-        width: auto;
-        height: auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .image {
         width: 100%;
         height: auto;
+        max-height: 80vh; // Ajustez la hauteur maximale selon vos besoins
+        object-fit: contain; // Assurez-vous que l'image est entièrement visible
+    }
+
+    // Personnalisation des flèches de navigation
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: black; // Couleur des flèches
+    }
+
+    // Personnalisation de la pagination (points)
+    .swiper-pagination-bullet {
+        background-color: black; // Couleur des points
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: red; // Couleur du point actif
     }
 }
