@@ -4,22 +4,22 @@ import localFont from 'next/font/local'
 import './globals.scss'
 
 const bold = localFont({
-    src: './fonts/LEMONMILK-Bold.otf',
+    src: './fonts/Barlow-SemiBold.ttf',
     variable: '--bold',
 })
 
 const medium = localFont({
-    src: './fonts/LEMONMILK-Medium.otf',
+    src: './fonts/Barlow-Medium.ttf',
     variable: '--medium',
 })
 
 const regular = localFont({
-    src: './fonts/LEMONMILK-Regular.otf',
+    src: './fonts/Barlow-Regular.ttf',
     variable: '--regular',
 })
 
 const light = localFont({
-    src: './fonts/LEMONMILK-Light.otf',
+    src: './fonts/Barlow-ExtraLight.ttf',
     variable: '--light',
 })
 

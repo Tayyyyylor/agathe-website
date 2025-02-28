@@ -28,6 +28,12 @@ export default function ModelPage({ data }: ModelPageProps) {
         setIsOpen(false)
     }
 
+    const handleBackdropClick = (e: React.MouseEvent) => {
+        if (e.target === e.currentTarget) {
+            handleClickCloseModal()
+        }
+    }
+
     useGSAP(() => {
         if (!containerRef.current) return
         const cards = containerRef?.current?.querySelectorAll(`.${styles.card}`)
@@ -61,11 +67,16 @@ export default function ModelPage({ data }: ModelPageProps) {
                 ))}
             </section>
             {isOpen && selectedProject && (
-                <Modal
-                    title="toto"
-                    onClick={handleClickCloseModal}
-                    data={selectedProject}
-                />
+                <>
+                    <div
+                        className={styles.backdrop}
+                        onClick={handleBackdropClick}
+                    />
+                    <Modal
+                        onClick={handleClickCloseModal}
+                        data={selectedProject}
+                    />
+                </>
             )}
         </main>
     )
