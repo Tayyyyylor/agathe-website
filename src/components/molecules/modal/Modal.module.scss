@@ -95,3 +95,15 @@
         background-color: red; // Couleur du point actif
     }
 }
+
+.back {
+    position: absolute;
+    color: white;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1100;
+}
+
+.mobileContainer {
+    position: relative;
+}

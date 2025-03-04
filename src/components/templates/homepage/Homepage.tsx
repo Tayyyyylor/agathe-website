@@ -38,7 +38,7 @@ export default function Homepage({ data }: any) {
                 setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length)
                 setIsTransitioning(false) // Fin de la transition
             }, 1000) // Durée de la transition (1 seconde)
-        }, 2000) // Intervalle entre les changements d'images (4 secondes)
+        }, 5000) // Intervalle entre les changements d'images (4 secondes)
 
         return () => clearInterval(interval)
     }, [data.length])
@@ -72,7 +72,6 @@ export default function Homepage({ data }: any) {
                 className={styles.counter}
                 data={sortedData}
                 index={currentIndex}
-                setIndex={setCurrentIndex}
             />
         </main>
     )
