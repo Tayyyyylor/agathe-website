@@ -43,12 +43,12 @@ export default function Navbar() {
                     </li>
                     <li>
                         <Link href="/stands" onClick={handleClick}>
-                            stands
+                            création d&apos;accessoires
                         </Link>
                     </li>
                     <li>
                         <Link href="/maquettes" onClick={handleClick}>
-                            maquettes
+                            maquettes & modélisations 3D
                         </Link>
                     </li>
                     <li>
@@ -80,7 +80,7 @@ export default function Navbar() {
                     isActive('/stands') ? styles.active : ''
                 }`}
             >
-                stands
+                création d&apos;accessoires
             </Link>
             <Link
                 href="/maquettes"
@@ -88,7 +88,7 @@ export default function Navbar() {
                     isActive('/maquettes') ? styles.active : ''
                 }`}
             >
-                maquettes
+                maquettes & modélisations 3D
             </Link>
             <Link
                 href="/photographies"
