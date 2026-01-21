@@ -1,4 +1,4 @@
-@import '../../../app/variables.scss';
+@use '../../../app/variables.scss';
 
 .container {
     display: flex;
@@ -18,7 +18,7 @@
         height: 350px;
         width: 100%;
         position: relative;
-        @media screen and (min-width: $desktop) {
+        @media screen and (min-width: variables.$desktop) {
             width: 350px;
         }
 

@@ -1,9 +1,17 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-    /* config options here */
     images: {
-        domains: ['images.ctfassets.net', 'res.cloudinary.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'images.ctfassets.net',
+            },
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+            },
+        ],
     },
 }
 

@@ -12,8 +12,6 @@ async function fetchContactData() {
             content_type: 'contact',
         })
 
-        console.log('response', response)
-
         if (response.items.length > 0) {
             return response.items
         } else {

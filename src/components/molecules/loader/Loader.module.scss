@@ -1,4 +1,4 @@
-@import '../../../app/variables.scss';
+@use '../../../app/variables.scss';
 
 .loader {
     display: flex;
@@ -6,7 +6,7 @@
     align-items: center;
     height: 100dvh;
     padding: 2rem;
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: variables.$desktop) {
         padding: 0;
     }
 }

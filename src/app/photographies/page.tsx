@@ -10,9 +10,8 @@ async function fetchPhotosData() {
     try {
         const response = await client.getEntries({
             content_type: 'photographies',
+            order: ['fields.order'],
         })
-
-        console.log('response', response)
 
         if (response.items.length > 0) {
             return response.items
@@ -27,8 +26,6 @@ async function fetchPhotosData() {
 
 export default async function PhotographiesPage() {
     const data = await fetchPhotosData()
-
-    console.log('data page', data)
 
     return <PhotoPage data={data} />
 }

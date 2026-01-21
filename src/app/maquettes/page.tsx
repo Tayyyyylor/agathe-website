@@ -10,9 +10,8 @@ async function fetchMaquettesData() {
     try {
         const response = await client.getEntries({
             content_type: 'maquettes',
+            order: ['fields.order'],
         })
-
-        console.log('response', response)
 
         if (response.items.length > 0) {
             return response.items
@@ -27,8 +26,6 @@ async function fetchMaquettesData() {
 
 export default async function PhotographiesPage() {
     const data = await fetchMaquettesData()
-
-    console.log('data page', data)
 
     return <Maquettes data={data} />
 }
