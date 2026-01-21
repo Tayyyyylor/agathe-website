@@ -1,19 +1,17 @@
-'use client'
-import useMobile from '@/hooks/useMobile'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import styles from './Logo.module.scss'
 
 export default function Logo() {
-    const isMobile = useMobile()
     return (
-        <Link href="/">
+        <Link href="/" className={styles.logo}>
             <Image
                 src="/logoagathe.png"
-                width={isMobile ? 100 : 150}
-                height={isMobile ? 100 : 150}
-                alt=""
-                layout="intrinsic"
+                width={150}
+                height={150}
+                alt="logo"
+                priority
             />
         </Link>
     )

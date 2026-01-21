@@ -33,7 +33,6 @@ export default function CounterSlide({
     useGSAP(() => {
         if (firstLoad) return
         const current = currentNumberRef.current
-        console.log('current', current)
 
         if (current) {
             // Timeline pour synchroniser les animations
@@ -73,7 +72,6 @@ export default function CounterSlide({
         return null
     }
 
-    console.log('currentOrder', currentOrder)
     return (
         <div className={`${styles.counter} ${className}`} ref={containerRef}>
             <div ref={currentNumberRef}>{currentOrder}</div>

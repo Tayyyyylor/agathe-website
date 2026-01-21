@@ -10,9 +10,8 @@ async function fetchScenoData() {
     try {
         const response = await client.getEntries({
             content_type: 'sceno',
+            order: ['fields.order'],
         })
-
-        console.log('response', response)
 
         if (response.items.length > 0) {
             return response.items

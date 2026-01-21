@@ -1,9 +1,7 @@
 'use client'
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-
-import { useGSAP } from '@gsap/react'
 
 import Cards from '@/components/molecules/cards/Cards'
 import Modal from '@/components/molecules/modal/Modal'
@@ -34,24 +32,23 @@ export default function ModelPage({ data }: ModelPageProps) {
         }
     }
 
-    useGSAP(() => {
+    useEffect(() => {
         if (!containerRef.current) return
-        const cards = containerRef?.current?.querySelectorAll(`.${styles.card}`)
-        console.log('cards', cards)
-        if (cards) {
-            gsap.fromTo(
-                cards,
-                { y: 100, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.5,
-                    ease: 'back.out(1.7)',
-                    stagger: 0.1,
-                }
-            )
-        }
-    }, [data])
+
+        const cards = containerRef.current.querySelectorAll(`.${styles.card}`)
+
+        gsap.fromTo(
+            cards,
+            { y: 100, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.5,
+                ease: 'back.out(1.7)',
+                stagger: 0.1,
+            }
+        )
+    }, [])
     return (
         <main className={styles.model} ref={containerRef}>
             <section className={styles.containerCards}>

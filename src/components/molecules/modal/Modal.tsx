@@ -43,7 +43,6 @@ export default function Modal({ data, onClick }: ModalProps) {
                                         src={img.original_secure_url}
                                         width={800} // Ajustez la taille selon vos besoins
                                         height={600}
-                                        layout="responsive"
                                         alt={`Image ${index + 1}`}
                                         className={styles.image}
                                     />
@@ -74,7 +73,6 @@ export default function Modal({ data, onClick }: ModalProps) {
                                         src={img.original_secure_url}
                                         width={800} // Ajustez la taille selon vos besoins
                                         height={600}
-                                        layout="responsive"
                                         alt={`Image ${index + 1}`}
                                         className={styles.image}
                                     />

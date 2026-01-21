@@ -51,7 +51,10 @@ export default function Homepage({ data }: any) {
                         <Image
                             src={`${item?.fields?.img?.[0]?.original_secure_url}`}
                             alt=""
-                            fill
+                            width={1920}
+                            height={1080}
+                            sizes="100vw"
+                            priority={index === 0}
                             className={`${styles.image} ${
                                 index === currentIndex
                                     ? styles.active

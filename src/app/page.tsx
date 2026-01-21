@@ -5,9 +5,8 @@ async function fetchSliderData() {
     try {
         const response = await client.getEntries({
             content_type: 'slider',
+            order: ['fields.order'],
         })
-
-        console.log('response', response)
 
         if (response.items.length > 0) {
             return response.items
