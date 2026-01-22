@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 
 import styles from './Homepage.module.scss'
-import { getCloudinaryImage } from '@/utils/getCloudinaryImg'
 
 export default function Homepage({ data }: any) {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
@@ -49,15 +48,12 @@ export default function Homepage({ data }: any) {
                 {sortedData.map((item, index) => (
                     <div key={index}>
                         <Image
-                            src={getCloudinaryImage(
-                                item.fields.img[0].original_secure_url
-                            )}
-                            width={2560}
-                            height={1440}
-                            quality={95}
-                            alt=""
+                            src={item.fields.img[0].original_secure_url}
+                            fill
                             unoptimized
-                            sizes="(max-width: 768px) 100vw, 80vw"
+                            quality={100}
+                            alt=""
+                            sizes="(max-width: 1920px) 100vw, 3840px"
                             priority={index === 0}
                             className={`${styles.image} ${
                                 index === currentIndex
@@ -69,9 +65,6 @@ export default function Homepage({ data }: any) {
                                 opacity: index === currentIndex ? 1 : 0,
                             }}
                         />
-                        {/* {index === currentIndex && (
-                            <p className={styles.title}>{currentTitle}</p>
-                        )} */}
                     </div>
                 ))}
             </section>
