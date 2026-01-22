@@ -10,7 +10,7 @@ async function fetchMaquettesData() {
     try {
         const response = await client.getEntries({
             content_type: 'maquettes',
-            order: ['fields.order'],
+            order: ['-fields.order'],
         })
 
         if (response.items.length > 0) {

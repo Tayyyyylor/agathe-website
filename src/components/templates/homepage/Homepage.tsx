@@ -3,8 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 
-import CounterSlide from '@/components/atoms/counterSlide/CounterSlide'
 import styles from './Homepage.module.scss'
+import { getCloudinaryImage } from '@/utils/getCloudinaryImg'
 
 export default function Homepage({ data }: any) {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
@@ -49,11 +49,15 @@ export default function Homepage({ data }: any) {
                 {sortedData.map((item, index) => (
                     <div key={index}>
                         <Image
-                            src={`${item?.fields?.img?.[0]?.original_secure_url}`}
+                            src={getCloudinaryImage(
+                                item.fields.img[0].original_secure_url
+                            )}
+                            width={2560}
+                            height={1440}
+                            quality={95}
                             alt=""
-                            width={1920}
-                            height={1080}
-                            sizes="100vw"
+                            unoptimized
+                            sizes="(max-width: 768px) 100vw, 80vw"
                             priority={index === 0}
                             className={`${styles.image} ${
                                 index === currentIndex
@@ -71,11 +75,6 @@ export default function Homepage({ data }: any) {
                     </div>
                 ))}
             </section>
-            <CounterSlide
-                className={styles.counter}
-                data={sortedData}
-                index={currentIndex}
-            />
         </main>
     )
 }

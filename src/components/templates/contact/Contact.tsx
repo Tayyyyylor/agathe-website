@@ -4,6 +4,9 @@ import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import Link from 'next/link'
 import styles from './Contact.module.scss'
+import { FaInstagram } from 'react-icons/fa'
+import { FaImdb } from 'react-icons/fa'
+import { FaLinkedin } from 'react-icons/fa'
 
 export default function Contact({ data }: any) {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -29,13 +32,13 @@ export default function Contact({ data }: any) {
     return (
         <main className={styles.contact} ref={containerRef}>
             <Link target="_blank" href={data.instagram} className={styles.link}>
-                Instagram
+                <FaInstagram size={100} color="#000" />
             </Link>
             <Link target="_blank" href={data.imdb} className={styles.link}>
-                ImDB
+                <FaImdb size={100} color="#000" />
             </Link>
             <Link target="_blank" href={data.linkedIn} className={styles.link}>
-                LinkedIn
+                <FaLinkedin size={100} color="#000" />
             </Link>
             <Link href={`mailto:${data.mail}`} className={styles.link}>
                 {data.mail}

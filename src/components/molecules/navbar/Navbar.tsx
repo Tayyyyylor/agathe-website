@@ -11,6 +11,7 @@ export default function Navbar() {
 
     const pathname = usePathname()
     const isActive = (path: string) => pathname?.includes(path)
+    const isHome = pathname === '/'
 
     const toggleMenu = () => {
         setIsOpen(!isOpen)
@@ -24,40 +25,62 @@ export default function Navbar() {
         <div className={styles.burgerMenu}>
             <div className={styles.burgerIcon} onClick={toggleMenu}>
                 <span
-                    className={`${styles.line} ${isOpen ? styles.crossLine1 : ''}`}
+                    className={`${styles.line} ${isOpen ? styles.crossLine1 : ''} ${isHome ? styles.whiteLine : ''}`}
                 />
                 <span
-                    className={`${styles.line} ${isOpen ? styles.crossLine2 : ''}`}
+                    className={`${styles.line} ${isOpen ? styles.crossLine2 : ''} ${isHome ? styles.whiteLine : ''}`}
                 />
                 <span
-                    className={`${styles.line} ${isOpen ? styles.crossLine3 : ''}`}
+                    className={`${styles.line} ${isOpen ? styles.crossLine3 : ''} ${isHome ? styles.whiteLine : ''}`}
                 />
             </div>
 
-            <nav className={`${styles.menu} ${isOpen ? styles.menuOpen : ''}`}>
+            <nav
+                className={`${styles.menu} ${isOpen ? styles.menuOpen : ''} ${isHome ? styles.white : ''}`}
+            >
                 <ul>
                     <li>
-                        <Link href="/decors" onClick={handleClick}>
+                        <Link
+                            href="/decors"
+                            onClick={handleClick}
+                            className={`${isHome ? styles.white : ''}`}
+                        >
                             décors
                         </Link>
                     </li>
                     <li>
-                        <Link href="/stands" onClick={handleClick}>
+                        <Link
+                            href="/stands"
+                            onClick={handleClick}
+                            className={`${isHome ? styles.white : ''}`}
+                        >
                             création d&apos;accessoires
                         </Link>
                     </li>
                     <li>
-                        <Link href="/maquettes" onClick={handleClick}>
+                        <Link
+                            href="/maquettes"
+                            onClick={handleClick}
+                            className={`${isHome ? styles.white : ''}`}
+                        >
                             maquettes & modélisations 3D
                         </Link>
                     </li>
                     <li>
-                        <Link href="/photographies" onClick={handleClick}>
+                        <Link
+                            href="/photographies"
+                            onClick={handleClick}
+                            className={`${isHome ? styles.white : ''}`}
+                        >
                             photographies
                         </Link>
                     </li>
                     <li>
-                        <Link href="/contact" onClick={handleClick}>
+                        <Link
+                            href="/contact"
+                            onClick={handleClick}
+                            className={`${isHome ? styles.white : ''}`}
+                        >
                             contact
                         </Link>
                     </li>
@@ -65,12 +88,12 @@ export default function Navbar() {
             </nav>
         </div>
     ) : (
-        <nav className={styles.nav}>
+        <nav className={`${styles.nav} ${isHome ? styles.white : ''}`}>
             <Link
                 href="/decors"
                 className={`${styles.link} ${
                     isActive('/decors') ? styles.active : ''
-                }`}
+                } ${isHome ? styles.white : ''}`}
             >
                 décors
             </Link>
@@ -78,7 +101,7 @@ export default function Navbar() {
                 href="/stands"
                 className={`${styles.link} ${
                     isActive('/stands') ? styles.active : ''
-                }`}
+                } ${isHome ? styles.white : ''}`}
             >
                 création d&apos;accessoires
             </Link>
@@ -86,7 +109,7 @@ export default function Navbar() {
                 href="/maquettes"
                 className={`${styles.link} ${
                     isActive('/maquettes') ? styles.active : ''
-                }`}
+                } ${isHome ? styles.white : ''}`}
             >
                 maquettes & modélisations 3D
             </Link>
@@ -94,7 +117,7 @@ export default function Navbar() {
                 href="/photographies"
                 className={`${styles.link} ${
                     isActive('/photographies') ? styles.active : ''
-                }`}
+                } ${isHome ? styles.white : ''}`}
             >
                 photographies
             </Link>
@@ -102,7 +125,7 @@ export default function Navbar() {
                 href="/contact"
                 className={`${styles.link} ${
                     isActive('/contact') ? styles.active : ''
-                }`}
+                } ${isHome ? styles.white : ''}`}
             >
                 contact
             </Link>

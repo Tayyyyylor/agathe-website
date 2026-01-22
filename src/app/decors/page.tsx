@@ -10,7 +10,7 @@ async function fetchDecorsData() {
     try {
         const response = await client.getEntries({
             content_type: 'decors',
-            order: ['fields.order'],
+            order: ['-fields.order'],
         })
 
         if (response.items.length > 0) {
