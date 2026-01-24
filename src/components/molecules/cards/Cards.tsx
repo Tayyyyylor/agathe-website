@@ -31,7 +31,7 @@ export default function Cards({
                         fill
                     />
                 </div>
-                <p>{title}</p>
+                <p className={styles.title}>{title}</p>
             </section>
         </>
     )
