@@ -31,15 +31,25 @@ export default function Contact({ data }: any) {
 
     return (
         <main className={styles.contact} ref={containerRef}>
-            <Link target="_blank" href={data.instagram} className={styles.link}>
-                <FaInstagram size={100} color="#000" />
-            </Link>
-            <Link target="_blank" href={data.imdb} className={styles.link}>
-                <FaImdb size={100} color="#000" />
-            </Link>
-            <Link target="_blank" href={data.linkedIn} className={styles.link}>
-                <FaLinkedin size={100} color="#000" />
-            </Link>
+            <div className={styles.logoContainer}>
+                <Link
+                    target="_blank"
+                    href={data.instagram}
+                    className={styles.link}
+                >
+                    <FaInstagram size={80} color="#000" />
+                </Link>
+                <Link target="_blank" href={data.imdb} className={styles.link}>
+                    <FaImdb size={80} color="#000" />
+                </Link>
+                <Link
+                    target="_blank"
+                    href={data.linkedIn}
+                    className={styles.link}
+                >
+                    <FaLinkedin size={80} color="#000" />
+                </Link>
+            </div>
             <Link href={`mailto:${data.mail}`} className={styles.link}>
                 {data.mail}
             </Link>
