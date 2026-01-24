@@ -11,9 +11,7 @@
 .containerCards {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     @media screen and (min-width: variables.$desktop) {
-        gap: 0;
         margin-top: 150px;
         display: grid;
         margin-bottom: 60px;
