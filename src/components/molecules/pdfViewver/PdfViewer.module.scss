@@ -1,0 +1,13 @@
+@use '../../../app/variables';
+
+.container {
+    width: 100%;
+    height: 100svh;
+    background-color: variables.$white;
+}
+
+.iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}

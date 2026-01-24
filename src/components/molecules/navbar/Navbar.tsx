@@ -77,6 +77,15 @@ export default function Navbar() {
                     </li>
                     <li>
                         <Link
+                            href="/cv"
+                            onClick={handleClick}
+                            className={`${isHome ? styles.white : ''}`}
+                        >
+                            Cv
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
                             href="/contact"
                             onClick={handleClick}
                             className={`${isHome ? styles.white : ''}`}
@@ -120,6 +129,14 @@ export default function Navbar() {
                 } ${isHome ? styles.white : ''}`}
             >
                 photographies
+            </Link>
+            <Link
+                href="/cv"
+                className={`${styles.link} ${
+                    isActive('/photographies') ? styles.active : ''
+                } ${isHome ? styles.white : ''}`}
+            >
+                cv
             </Link>
             <Link
                 href="/contact"

@@ -26,10 +26,10 @@ async function fetchContactData() {
 
 const getCachedContactData = unstable_cache(
     async () => fetchContactData(),
-    ['decors-data'], // Cache key
+    ['contact-data'], // Cache key
     {
         revalidate: 3600, // 1h
-        tags: ['decors'], // Pour revalidation ciblée
+        tags: ['contact'], // Pour revalidation ciblée
     }
 )
 

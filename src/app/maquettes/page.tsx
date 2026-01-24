@@ -27,10 +27,10 @@ async function fetchMaquettesData() {
 
 const getCachedMaquettesData = unstable_cache(
     async () => fetchMaquettesData(),
-    ['decors-data'], // Cache key
+    ['maquettes-data'], // Cache key
     {
         revalidate: 3600, // 1h
-        tags: ['decors'], // Pour revalidation ciblée
+        tags: ['maquettes'], // Pour revalidation ciblée
     }
 )
 
