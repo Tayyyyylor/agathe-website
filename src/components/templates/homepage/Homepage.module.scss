@@ -17,13 +17,6 @@
     }
 }
 
-@media (max-width: 768px) {
-    .imageContainer {
-        height: calc(100vw * 9 / 16); // 👈 ratio paysage respecté
-        max-height: 80vh; // optionnel
-    }
-}
-
 .imageContainer > div {
     position: absolute;
     inset: 0;

@@ -85,6 +85,10 @@
         z-index: 10;
     }
 
+    .whiteLine {
+        background: white !important;
+    }
+
     .crossLine1 {
         transform: rotate(45deg) translate(6px, 2px);
     }
@@ -96,4 +100,9 @@
     .crossLine3 {
         transform: rotate(-45deg) translate(10px, -6px);
     }
+}
+
+.white {
+    color: white !important;
+    background-color: transparent !important;
 }
