@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import client from '@/utils/contentful'
 import Maquettes from '@/components/templates/maquettesPage/Maquettes'
+import { unstable_cache } from 'next/cache'
 
 export const metadata: Metadata = {
     title: 'maquettes',
@@ -24,8 +25,17 @@ async function fetchMaquettesData() {
     }
 }
 
+const getCachedMaquettesData = unstable_cache(
+    async () => fetchMaquettesData(),
+    ['decors-data'], // Cache key
+    {
+        revalidate: 3600, // 1h
+        tags: ['decors'], // Pour revalidation ciblée
+    }
+)
+
 export default async function PhotographiesPage() {
-    const data = await fetchMaquettesData()
+    const data = await getCachedMaquettesData()
 
     return <Maquettes data={data} />
 }

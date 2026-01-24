@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import client from '@/utils/contentful'
 import PhotoPage from '@/components/templates/photographiesPage/PhotoPage'
+import { unstable_cache } from 'next/cache'
 
 export const metadata: Metadata = {
     title: 'photographies',
@@ -24,8 +25,17 @@ async function fetchPhotosData() {
     }
 }
 
+const getCachedPhotosData = unstable_cache(
+    async () => fetchPhotosData(),
+    ['decors-data'], // Cache key
+    {
+        revalidate: 3600, // 1h
+        tags: ['decors'], // Pour revalidation ciblée
+    }
+)
+
 export default async function PhotographiesPage() {
-    const data = await fetchPhotosData()
+    const data = await getCachedPhotosData()
 
     return <PhotoPage data={data} />
 }

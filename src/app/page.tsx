@@ -1,5 +1,6 @@
 import Homepage from '@/components/templates/homepage/Homepage'
 import client from '@/utils/contentful'
+import { unstable_cache } from 'next/cache'
 
 async function fetchSliderData() {
     try {
@@ -19,8 +20,17 @@ async function fetchSliderData() {
     }
 }
 
+const getCachedSliderData = unstable_cache(
+    async () => fetchSliderData(),
+    ['decors-data'], // Cache key
+    {
+        revalidate: 3600, // 1h
+        tags: ['decors'], // Pour revalidation ciblée
+    }
+)
+
 export default async function Home() {
-    const data = await fetchSliderData()
+    const data = await getCachedSliderData()
 
     return <Homepage data={data} />
 }
