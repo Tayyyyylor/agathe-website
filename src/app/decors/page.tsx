@@ -1,6 +1,7 @@
 import Decors from '@/components/templates/decors/Decors'
 import client from '@/utils/contentful'
 import { Metadata } from 'next'
+import { unstable_cache } from 'next/cache'
 
 export const metadata: Metadata = {
     title: 'decors',
@@ -24,7 +25,16 @@ async function fetchDecorsData() {
     }
 }
 
+const getCachedDecorsData = unstable_cache(
+    async () => fetchDecorsData(),
+    ['decors-data'], // Cache key
+    {
+        revalidate: 3600, // 1h
+        tags: ['decors'], // Pour revalidation ciblée
+    }
+)
+
 export default async function DecorsPage() {
-    const data = await fetchDecorsData()
+    const data = await getCachedDecorsData()
     return <Decors data={data} />
 }

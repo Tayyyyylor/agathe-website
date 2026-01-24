@@ -1,6 +1,7 @@
 import Stands from '@/components/templates/stands/Stands'
 import client from '@/utils/contentful'
 import { Metadata } from 'next'
+import { unstable_cache } from 'next/cache'
 
 export const metadata: Metadata = {
     title: 'scenographie',
@@ -24,7 +25,16 @@ async function fetchScenoData() {
     }
 }
 
+const getCachedScenoData = unstable_cache(
+    async () => fetchScenoData(),
+    ['sceno-data'], // Cache key
+    {
+        revalidate: 3600, // 1h
+        tags: ['sceno'], // Pour revalidation ciblée
+    }
+)
+
 export default async function ScenographiePage() {
-    const data = await fetchScenoData()
+    const data = await getCachedScenoData()
     return <Stands data={data} />
 }

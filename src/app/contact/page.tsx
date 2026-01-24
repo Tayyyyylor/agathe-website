@@ -1,6 +1,7 @@
 import Contact from '@/components/templates/contact/Contact'
 import client from '@/utils/contentful'
 import { Metadata } from 'next'
+import { unstable_cache } from 'next/cache'
 
 export const metadata: Metadata = {
     title: 'contact',
@@ -23,7 +24,16 @@ async function fetchContactData() {
     }
 }
 
+const getCachedContactData = unstable_cache(
+    async () => fetchContactData(),
+    ['contact-data'], // Cache key
+    {
+        revalidate: 3600, // 1h
+        tags: ['contact'], // Pour revalidation ciblée
+    }
+)
+
 export default async function ContactPage() {
-    const data = await fetchContactData()
+    const data = await getCachedContactData()
     return <Contact data={data?.[0]?.fields} />
 }

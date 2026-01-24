@@ -10,3 +10,15 @@
         padding: 0;
     }
 }
+
+.logo {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+}
+
+@media screen and (min-width: variables.$desktop) {
+    .logo {
+        max-width: 500px;
+    }
+}

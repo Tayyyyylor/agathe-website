@@ -27,6 +27,7 @@ export default function Loader() {
                 alt="loader"
                 width={500}
                 height={300}
+                className={styles.logo}
             />
         </main>
     )
