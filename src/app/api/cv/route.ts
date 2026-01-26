@@ -2,6 +2,9 @@
 import serverClient from '@/utils/contentful.server'
 import { NextResponse } from 'next/server'
 
+
+export const revalidate = 0 
+
 export async function GET() {
     try {
         const entries = await serverClient.getEntries({
@@ -18,13 +21,16 @@ export async function GET() {
         const fileUrl = `https:${file.url}`
         const fileName = file.fileName
 
-        const pdfRes = await fetch(fileUrl)
+         const pdfRes = await fetch(fileUrl, {
+      cache: 'no-store' 
+    })
         const buffer = await pdfRes.arrayBuffer()
 
         return new NextResponse(buffer, {
             headers: {
                 'Content-Type': 'application/pdf',
                 'Content-Disposition': `attachment; filename="${fileName}"`,
+                   'Cache-Control': 'no-cache, no-store, must-revalidate',
             },
         })
     } catch (error) {
