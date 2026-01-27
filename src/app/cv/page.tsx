@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     title: 'CV Agathe',
 }
 
+export const revalidate = 0
+
 interface CvSkeleton extends EntrySkeletonType {
     contentTypeId: 'cv'
     fields: {

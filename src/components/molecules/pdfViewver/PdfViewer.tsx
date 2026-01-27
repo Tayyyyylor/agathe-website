@@ -24,11 +24,11 @@ export default function PDFViewer({ pdfUrl }: PDFViewerProps) {
                 <FaFilePdf size={30} />
                 Télécharger CV PDF
             </a>
-            <iframe
-                src={viewerUrl}
-                className={styles.iframe}
-                title="CV PDF"
-            />
+                <iframe
+                    src={viewerUrl}
+                    className={styles.iframe}
+                    title="CV PDF"
+                />
         </div>
     )
 }
