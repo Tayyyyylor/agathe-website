@@ -7,7 +7,6 @@
     position: relative;
     margin-top: 61px;
     overflow: hidden;
-
 }
 .button {
     position: fixed; // ⬅️ fixed au lieu d'absolute pour rester visible
@@ -23,7 +22,7 @@
     cursor: pointer;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    
+
     @media (max-width: 768px) {
         right: 10px;
         bottom: 10px;
@@ -37,9 +36,9 @@
     height: 100%;
     border: none;
     background-color: variables.$white;
-    
+
     @media (max-width: 768px) {
-         width: calc(100% + 40px);
+        width: calc(100% + 40px);
         height: calc(100% + 40px);
         margin: -20px;
     }

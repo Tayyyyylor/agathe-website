@@ -10,11 +10,9 @@ type PDFViewerProps = {
 export default function PDFViewer({ pdfUrl }: PDFViewerProps) {
     console.log('pdfUrl :>> ', pdfUrl)
 
-     const isMobile = useMobile()
+    const isMobile = useMobile()
 
- 
-
-    const viewerUrl = isMobile 
+    const viewerUrl = isMobile
         ? `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`
         : `${pdfUrl}#view=FitH&toolbar=0&navpanes=0`
 
@@ -24,11 +22,7 @@ export default function PDFViewer({ pdfUrl }: PDFViewerProps) {
                 <FaFilePdf size={30} />
                 Télécharger CV PDF
             </a>
-                <iframe
-                    src={viewerUrl}
-                    className={styles.iframe}
-                    title="CV PDF"
-                />
+            <iframe src={viewerUrl} className={styles.iframe} title="CV PDF" />
         </div>
     )
 }
