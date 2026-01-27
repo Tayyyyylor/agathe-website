@@ -1,7 +1,7 @@
 @use '../../../app/variables.scss';
 
 .model {
-    margin-top: 110px;
+    margin-top: 63px;
     @media screen and (min-width: variables.$desktop) {
         margin: 0 auto;
         max-width: 1200px;
