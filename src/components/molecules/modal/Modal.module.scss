@@ -9,26 +9,25 @@
     top: 80px;
     left: 5%;
     border: 1px solid black;
-    overflow-y: auto;
+    overflow: hidden; // ⬅️ Pas de scroll ici
     height: 90dvh;
-    align-items: center;
-    justify-content: center;
     z-index: 1000;
     border-radius: 10px;
-}
-
-.back {
-    position: absolute;
-    color: white;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1100;
-    cursor: pointer;
 }
 
 .mobileContainer {
     position: relative;
     width: 100%;
+    height: 100%; // ⬅️ Ajouté
+    overflow-y: auto; // ⬅️ Le scroll est ici maintenant
+}
+
+.back {
+    position: fixed; // ⬅️ Fixed pour rester en haut
+    top: calc(80px + 1rem);
+    right: calc(5% + 1rem);
+    z-index: 1100;
+    cursor: pointer;
 }
 
 .mobileSlide {
