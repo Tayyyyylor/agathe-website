@@ -18,18 +18,34 @@ interface ModalProps {
 
 export default function Modal({ data, onClick }: ModalProps) {
     const isMobile = useMobile()
-    const modalRef = useRef<HTMLDivElement>(null)
+    const mobileContainerRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        if (modalRef.current) {
-            modalRef.current.scrollTo(0, 0)
+        if (isMobile) {
+            // Bloquer le scroll du body
+            document.body.style.overflow = 'hidden'
+
+            // Scroll en haut du container mobile
+            if (mobileContainerRef.current) {
+                mobileContainerRef.current.scrollTop = 0
+            }
+
+            // Forcer le scroll aussi sur window
+            window.scrollTo(0, 0)
         }
-    }, [])
+
+        return () => {
+            document.body.style.overflow = 'unset'
+        }
+    }, [isMobile])
 
     if (isMobile) {
         return (
-            <section className={styles.modal} ref={modalRef}>
-                <div className={styles.mobileContainer}>
+            <section className={styles.modal}>
+                <div
+                    className={styles.mobileContainer}
+                    ref={mobileContainerRef}
+                >
                     <Image
                         width={50}
                         height={50}
