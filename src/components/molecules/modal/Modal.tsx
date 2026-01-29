@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './Modal.module.scss'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -18,10 +18,17 @@ interface ModalProps {
 
 export default function Modal({ data, onClick }: ModalProps) {
     const isMobile = useMobile()
+    const modalRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        if (modalRef.current) {
+            modalRef.current.scrollTo(0, 0)
+        }
+    }, [])
 
     if (isMobile) {
         return (
-            <section className={styles.modal}>
+            <section className={styles.modal} ref={modalRef}>
                 <div className={styles.mobileContainer}>
                     <Image
                         width={50}

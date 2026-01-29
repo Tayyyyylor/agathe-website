@@ -27,10 +27,10 @@ async function fetchScenoData() {
 
 const getCachedScenoData = unstable_cache(
     async () => fetchScenoData(),
-    ['sceno-data'], // Cache key
+    ['sceno-data'],
     {
-        revalidate: 3600, // 1h
-        tags: ['sceno'], // Pour revalidation ciblée
+        revalidate: 3600,
+        tags: ['sceno'],
     }
 )
 

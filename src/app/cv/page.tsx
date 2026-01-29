@@ -1,4 +1,3 @@
-// app/cv/page.tsx
 import { Metadata } from 'next'
 import client from '@/utils/contentful'
 import PdfViewer from '@/components/molecules/pdfViewver/PdfViewer'

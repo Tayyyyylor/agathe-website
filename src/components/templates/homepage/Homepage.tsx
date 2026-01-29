@@ -15,7 +15,6 @@ export default function Homepage({ data }: any) {
         return [...data].sort((a, b) => a.fields.order - b.fields.order)
     }, [data])
 
-    // Hide vertical scroll
     useEffect(() => {
         document.body.style.overflow = 'hidden'
         document.body.style.height = '100%'
@@ -32,12 +31,12 @@ export default function Homepage({ data }: any) {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setIsTransitioning(true) // Début de la transition
+            setIsTransitioning(true)
             setTimeout(() => {
                 setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length)
-                setIsTransitioning(false) // Fin de la transition
-            }, 1000) // Durée de la transition (1 seconde)
-        }, 5000) // Intervalle entre les changements d'images (4 secondes)
+                setIsTransitioning(false)
+            }, 1000)
+        }, 3000)
 
         return () => clearInterval(interval)
     }, [data.length])

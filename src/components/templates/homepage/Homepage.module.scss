@@ -51,7 +51,7 @@
     font-size: 20px;
     color: #fff;
     font-family: 'fontMedium';
-    z-index: 10; // 👈 LE FIX
+    z-index: 10;
 
     @media screen and (min-width: variables.$desktop) {
         font-size: 40px;
