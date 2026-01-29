@@ -1,6 +1,5 @@
 @use '../../../app/variables.scss';
 
-// Mobile (ancien style)
 .modal {
     display: flex;
     flex-direction: column;
@@ -40,7 +39,6 @@
     }
 }
 
-// Desktop (nouveau style)
 .modalDesktop {
     position: fixed;
     inset: 0;

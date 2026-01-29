@@ -19,10 +19,22 @@ export default function PDFViewer({ pdfUrl }: PDFViewerProps) {
     return (
         <div className={styles.container}>
             <a href="/api/cv" className={styles.button}>
-                <FaFilePdf size={30} />
-                Télécharger CV PDF
+                <div className={styles.iconWrapper}>
+                    <FaFilePdf className={styles.pdfIcon} />
+                </div>
+                <div className={styles.textWrapper}>
+                    <span className={styles.mainText}>Télécharger</span>
+                    <span className={styles.subText}>Mon CV</span>
+                </div>
             </a>
-            <iframe src={viewerUrl} className={styles.iframe} title="CV PDF" />
+
+            <div className={styles.iframeWrapper}>
+                <iframe
+                    src={viewerUrl}
+                    className={styles.iframe}
+                    title="CV PDF"
+                />
+            </div>
         </div>
     )
 }

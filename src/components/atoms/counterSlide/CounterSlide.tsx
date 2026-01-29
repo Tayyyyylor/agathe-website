@@ -35,7 +35,6 @@ export default function CounterSlide({
         const current = currentNumberRef.current
 
         if (current) {
-            // Timeline pour synchroniser les animations
             const tl = gsap.timeline()
             tl.to(current, {
                 y: -100,
@@ -48,7 +47,6 @@ export default function CounterSlide({
                 },
             })
 
-            // Le nouveau numéro monte et devient visible
             tl.to(current, {
                 y: 0,
                 opacity: 1,

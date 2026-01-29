@@ -27,10 +27,10 @@ async function fetchPhotosData() {
 
 const getCachedPhotosData = unstable_cache(
     async () => fetchPhotosData(),
-    ['photographies-data'], // Cache key
+    ['photographies-data'],
     {
-        revalidate: 3600, // 1h
-        tags: ['photographies'], // Pour revalidation ciblée
+        revalidate: 3600,
+        tags: ['photographies'],
     }
 )
 

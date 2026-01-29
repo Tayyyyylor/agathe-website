@@ -22,10 +22,10 @@ async function fetchSliderData() {
 
 const getCachedSliderData = unstable_cache(
     async () => fetchSliderData(),
-    ['decors-data'], // Cache key
+    ['decors-data'],
     {
-        revalidate: 3600, // 1h
-        tags: ['decors'], // Pour revalidation ciblée
+        revalidate: 3600,
+        tags: ['decors'],
     }
 )
 
