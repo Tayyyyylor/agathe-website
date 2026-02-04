@@ -1,20 +1,28 @@
 'use client'
 import { FaFilePdf } from 'react-icons/fa'
 import styles from './PdfViewer.module.scss'
-import useMobile from '@/hooks/useMobile'
+import { useEffect, useState } from 'react'
 
 type PDFViewerProps = {
     pdfUrl: string
 }
 
 export default function PDFViewer({ pdfUrl }: PDFViewerProps) {
-    console.log('pdfUrl :>> ', pdfUrl)
+    const [mounted, setMounted] = useState(false)
 
-    const isMobile = useMobile()
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
-    const viewerUrl = isMobile
-        ? `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`
-        : `${pdfUrl}#view=FitH&toolbar=0&navpanes=0`
+    if (!mounted) {
+        return (
+            <div className={styles.container}>
+                <div className={styles.loading}>Chargement...</div>
+            </div>
+        )
+    }
+
+    const viewerUrl = `/pdf-viewer.html?file=${encodeURIComponent(pdfUrl)}`
 
     return (
         <div className={styles.container}>
