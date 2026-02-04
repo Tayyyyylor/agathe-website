@@ -22,15 +22,12 @@ export default function Modal({ data, onClick }: ModalProps) {
 
     useEffect(() => {
         if (isMobile) {
-            // Bloquer le scroll du body
             document.body.style.overflow = 'hidden'
 
-            // Scroll en haut du container mobile
             if (mobileContainerRef.current) {
                 mobileContainerRef.current.scrollTop = 0
             }
 
-            // Forcer le scroll aussi sur window
             window.scrollTo(0, 0)
         }
 
