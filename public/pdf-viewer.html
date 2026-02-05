@@ -24,8 +24,18 @@
         canvas {
             display: block;
             margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            background: #f7f2ee;
+            background: f7f2ee;
+            max-width: 100%;
+            height: auto !important;
+        }
+        @media (max-width: 768px) {
+            #pdf-container {
+                padding: 10px;
+            }
+            canvas {
+                width: 100% !important;
+                height: auto !important;
+            }
         }
     </style>
 </head>
@@ -51,24 +61,48 @@
             const loadingTask = pdfjsLib.getDocument(url);
             const pdf = await loadingTask.promise;
             
-            const viewport = await pdf.getPage(1).then(page => page.getViewport({ scale: 1.5 }));
-            const width = Math.min(viewport.width, window.innerWidth - 40);
+            const isMobile = window.innerWidth <= 768;
             
             for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
                 const page = await pdf.getPage(pageNum);
-                const scale = width / page.getViewport({ scale: 1 }).width;
-                const viewport = page.getViewport({ scale });
+                const viewport = page.getViewport({ scale: 1 });
+                
+                // Calculer le scale selon l'appareil
+                let scale;
+                if (isMobile) {
+                    // Mobile : ajuster à la largeur de l'écran
+                    const maxWidth = window.innerWidth - 20;
+                    scale = maxWidth / viewport.width;
+                } else {
+                    // Desktop : 210mm avec haute résolution
+                    const desiredWidth = 210 * 3.7795;
+                    scale = desiredWidth / viewport.width;
+                    scale = Math.max(scale, 2); // Minimum 2 pour la netteté
+                }
+                
+                const scaledViewport = page.getViewport({ scale });
                 
                 const canvas = document.createElement('canvas');
                 const context = canvas.getContext('2d');
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
+                
+                // Pour les écrans haute résolution
+                const outputScale = window.devicePixelRatio || 1;
+                
+                canvas.width = Math.floor(scaledViewport.width * outputScale);
+                canvas.height = Math.floor(scaledViewport.height * outputScale);
+                canvas.style.width = Math.floor(scaledViewport.width) + "px";
+                canvas.style.height = Math.floor(scaledViewport.height) + "px";
+                
+                const transform = outputScale !== 1 
+                    ? [outputScale, 0, 0, outputScale, 0, 0] 
+                    : null;
                 
                 container.appendChild(canvas);
                 
                 await page.render({
                     canvasContext: context,
-                    viewport: viewport
+                    viewport: scaledViewport,
+                    transform: transform
                 }).promise;
             }
         }
